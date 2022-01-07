@@ -1,0 +1,31 @@
+﻿@model List<Card>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<a asp-controller="Card" asp-action="NewHand">Test Hand</a>
+<a asp-controller="Table" asp-action="Table">Test Table</a>
+
+<div class="row">
+    <div class="col-8 offset-2">
+        <ul class="list-group">
+            @foreach (var card in Model)
+            {
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="~/PNG-cards-1.3/@card.CardImg" alt="@card.Value of @card.Suit " style="width: 200px; height: 150px;padding: 0.5em;" />
+                        </div>
+                        <div class="col-sm-4">
+                            @card.Value
+                        </div>
+                        <div class="col-sm-4">
+                            @card.Suit
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
